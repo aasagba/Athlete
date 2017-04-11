@@ -3,27 +3,32 @@
  */
 describe('AthleteApp', function () {
 
+  var controller, scope, timeout, ionicModal;
+
   beforeEach(module('starter.controller'));
 
-  var createController, scope, ionicModal, timeout;
+  beforeEach(inject(function($controller, $rootScope, $timeout) {
+    scope = $rootScope.$new();
+    timeout = $timeout;
 
-    beforeEach(inject(function($controller, $rootScope) {
-      scope = $rootScope.$new();
-      createController = function () {
-        return $controller('appCtrl', {
-          '$scope': scope
-        });
-      }
-      //$controller = _$controller_;
-    }));
+    function fakeTemplate() {
+      return { then:function(){}}
+    }
+    ionicModal = {
+      fromTemplateUrl: jasmine.createSpy('ionicModal.fromTemplateUrl').and.callFake(fakeTemplate)
+    };
 
-    describe('AthleteApp module and ctrl', function () {
-      it('should have a ctrl', function () {
-        var controller = createController();
-        expect(controller).toBeDefined();
-      });
+    controller = $controller('appCtrl', {
+      $scope: scope,
+      $timeout: timeout,
+      $ionicModal: ionicModal
     });
+  }));
 
-
+  describe('AthleteApp module and ctrl', function () {
+    it('should have a ctrl', function () {
+      expect(controller).toBeDefined();
+    });
+  });
 
 });
