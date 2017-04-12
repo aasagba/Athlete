@@ -1,7 +1,7 @@
-<ion-view view-title="Training Plans" ng-controller="trainingPlanCtrl">
+<ion-view view-title="Training Plans" ng-controller="trainingPlanCtrl as training">
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="plan in plans" href="#/app/playlists/{{plan.id}}">
+      <ion-item ng-repeat="plan in training.plans" href="#/app/playlists/{{plan.id}}">
         {{plan.title}}
       </ion-item>
     </ion-list>

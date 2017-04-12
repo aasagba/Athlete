@@ -48,6 +48,15 @@
           }
         }
       })
+      .state('app.profile', {
+        url: '/plans/:planId',
+        views: {
+          'menuContent': {
+            templateUrl: 'app/profile/profile.html',
+            controller: 'profileCtrl'
+          }
+        }
+      })
 
     $urlRouterProvider.otherwise('/app/home');
 

@@ -20,8 +20,14 @@ module.exports = function(config) {
       'www/lib/ionic/js/angular-ui/angular-ui-router.js',*/
       'www/lib/angular/angular.js',
       'www/lib/angular-mocks/angular-mocks.js',
+      'www/lib/ionic/js/ionic.js',
+      'www/lib/ionic/js/ionic-angular.js',
+      'www/lib/ionic/js/angular/angular-animate.js',
+      'www/lib/ionic/js/angular/angular-sanitize.js',
+      'www/lib/ionic/js/angular-ui/angular-ui-router.js',
       // App
       'www/app/*.js',
+      'www/app/*/*.js',
       // Test
       'www/app/*Spec.js',
       'www/app/*spec.js'
