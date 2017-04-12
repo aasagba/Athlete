@@ -9,10 +9,11 @@
 
   angular.module('athleteApp').controller('profileCtrl', profileCtrl);
 
-  profileCtrl.$inject = ['$scope'];
+  profileCtrl.$inject = ['$stateParams'];
 
-  function profileCtrl () {
+  function profileCtrl ($stateParams) {
     var vm = this;
+    vm.id = $stateParams.planId;
     vm.profiles = [];
 
     vm.$onInit = function () {
@@ -25,8 +26,9 @@
 
     vm.$onInit();
 
-    console.log(vm.profiles);
+    console.log(vm.id);
     //$scope.$digest();
   }
 
 })();
+
