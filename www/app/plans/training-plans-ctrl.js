@@ -6,26 +6,19 @@
 
     angular.module('athleteApp').controller('trainingPlanCtrl', trainingPlanCtrl);
 
-    trainingPlanCtrl.$inject = ['$scope'];
+    trainingPlanCtrl.$inject = ['$scope','trainingPlanService'];
 
-    function trainingPlanCtrl () {
+    function trainingPlanCtrl ($scope, trainingPlanService) {
       console.log('plans');
       var vm = this;
       vm.plans = [];
 
       vm.$onInit = function () {
-        console.log('firing');
-        vm.plans = [
-          { title: 'BoxFit', id: 1 },
-          { title: 'RunFit', id: 2 },
-          { title: 'SnowFit', id: 3 }
-        ];
+        trainingPlanService.getPlans().then(function (data) {
+          vm.plans = data;
+        });
       }
 
-      vm.$onInit();
-
-      console.log(vm.plans);
-      //$scope.$digest();
     }
 
 })();
