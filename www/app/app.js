@@ -56,6 +56,14 @@
           }
         }
       })
+      .state('app.workout', {
+        url: '/workout',
+        views: {
+          'menuContent': {
+            templateUrl: 'app/workout/workout.html'
+          }
+        }
+      })
 
     $urlRouterProvider.otherwise('/app/home');
 

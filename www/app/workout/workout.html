@@ -1,0 +1,10 @@
+<ion-view view-title="Plan" ng-controller="workoutCtrl as workout">
+  <ion-content>
+    <h1>Workout</h1>
+
+    <p ng-bind="workout.counter" style="font-size: 40px"></p>
+    <button ng-click="workout.countdown(5)">Start 5</button>
+    <button ng-click="workout.countdown(10);">Start 10</button>
+    <p ng-if="workout.complete" style="font-size: 20px">Time out!</p>
+  </ion-content>
+</ion-view>
