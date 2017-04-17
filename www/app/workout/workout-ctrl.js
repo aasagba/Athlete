@@ -18,6 +18,73 @@
     vm.complete = false;
     vm.started = false;
 
+    vm.groups = [
+      {
+        "id": 1,
+        "name": "WARMUP",
+        "iconURL": "http://ionicframework.com/img/docs/venkman.jpg",
+        "childItems": [
+          {
+            "childName": "Warmup 1",
+            "iconUrl": "http://ionicframework.com/img/docs/venkman.jpg"
+          },
+          {
+            "childName": "Warmup 2",
+            "iconUrl": "http://ionicframework.com/img/docs/venkman.jpg"
+          },
+          {
+            "childName": "Warmup 3",
+            "iconUrl": "http://ionicframework.com/img/docs/venkman.jpg"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "WORKOUT",
+        "iconURL": "http://ionicframework.com/img/docs/barrett.jpg",
+        "childItems": [
+          {
+            "childName": "Exercise 1",
+            "iconUrl": "http://ionicframework.com/img/docs/barrett.jpg"
+          },
+          {
+            "childName": "Exercise 2",
+            "iconUrl": "http://ionicframework.com/img/docs/barrett.jpg"
+          },
+          {
+            "childName": "Exercise 3",
+            "iconUrl": "http://ionicframework.com/img/docs/barrett.jpg"
+          }
+        ]
+      }
+    ];
+
+    vm.toggleGroup = function(group) {
+      if (vm.isGroupShown(group)) {
+        vm.shownGroup = null;
+      } else {
+        vm.shownGroup = group;
+      }
+      // $ionicScrollDelegate.resize();
+    }
+
+    vm.toggleSubGroup = function(item) {
+      if (vm.isSubGroupShown(item)) {
+        vm.shownChild = null;
+      } else {
+        vm.shownChild = item;
+      }
+      // $ionicScrollDelegate.resize();
+    }
+
+    vm.isGroupShown = function(group) {
+      return vm.shownGroup === group;
+    }
+
+    vm.isSubGroupShown = function(item) {
+      return vm.shownChild === item;
+    }
+
     vm.stop = function () {
       vm.started = !vm.started;
     }
