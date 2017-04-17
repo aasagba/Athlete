@@ -26,15 +26,18 @@
         "childItems": [
           {
             "childName": "Warmup 1",
-            "iconUrl": "http://ionicframework.com/img/docs/venkman.jpg"
+            "iconUrl": "http://ionicframework.com/img/docs/venkman.jpg",
+            "complete": true
           },
           {
             "childName": "Warmup 2",
-            "iconUrl": "http://ionicframework.com/img/docs/venkman.jpg"
+            "iconUrl": "http://ionicframework.com/img/docs/venkman.jpg",
+            "complete": false
           },
           {
             "childName": "Warmup 3",
-            "iconUrl": "http://ionicframework.com/img/docs/venkman.jpg"
+            "iconUrl": "http://ionicframework.com/img/docs/venkman.jpg",
+            "complete": false
           }
         ]
       },
@@ -45,19 +48,31 @@
         "childItems": [
           {
             "childName": "Exercise 1",
-            "iconUrl": "http://ionicframework.com/img/docs/barrett.jpg"
+            "iconUrl": "http://ionicframework.com/img/docs/barrett.jpg",
+            "complete": false
           },
           {
             "childName": "Exercise 2",
-            "iconUrl": "http://ionicframework.com/img/docs/barrett.jpg"
+            "iconUrl": "http://ionicframework.com/img/docs/barrett.jpg",
+            "complete": false
           },
           {
             "childName": "Exercise 3",
-            "iconUrl": "http://ionicframework.com/img/docs/barrett.jpg"
+            "iconUrl": "http://ionicframework.com/img/docs/barrett.jpg",
+            "complete": false
           }
         ]
       }
     ];
+
+    vm.toggleDone = function (complete, $event) {
+    $event.preventDefault();
+      $event.stopPropagation();
+      $event.preventDefault();
+      console.log('toggleDone');
+      console.log(!complete);
+      return !complete;
+    }
 
     vm.toggleGroup = function(group) {
       if (vm.isGroupShown(group)) {
