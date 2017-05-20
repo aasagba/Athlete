@@ -9,14 +9,15 @@
 
   angular.module('athleteApp').controller('profileCtrl', profileCtrl);
 
-  profileCtrl.$inject = ['$stateParams'];
+  profileCtrl.$inject = ['$stateParams', 'mockAthleteApi'];
 
-  function profileCtrl ($stateParams) {
+  function profileCtrl ($stateParams, mockAthleteApi) {
     var vm = this;
     vm.id = $stateParams.planId;
+    vm.title = $stateParams.planTitle;
     vm.profiles = [];
-
-    vm.$onInit = function () {
+    vm.profile = {};
+/*    vm.$onInit = function () {
       vm.profiles = [
         { title: 'BoxFit', id: 1 },
         { title: 'RunFit', id: 2 },
@@ -24,7 +25,18 @@
       ];
     }
 
-    vm.$onInit();
+    vm.$onInit();*/
+
+    test();
+
+    function test() {
+      var profileList = mockAthleteApi.profiles();
+      console.log(JSON.stringify(profileList));
+      vm.name = profileList[0].name;
+      vm.image = profileList[0].image;
+      vm.content = profileList[0].content;
+
+    }
 
     console.log(vm.id);
     //$scope.$digest();

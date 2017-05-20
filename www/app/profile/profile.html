@@ -1,5 +1,13 @@
 <ion-view view-title="Plan" ng-controller="profileCtrl as profile">
   <ion-content>
-    <h1>Profile {{profile.id}}</h1>
+    <h1>{{profile.title}}</h1>
+
+    <h2>Introducing.. {{profile.name}}</h2>
+    <img src="{{profile.image}}"/>
+    <p>{{profile.content}}</p>
+
+    <div class="button-bar" style="margin-top:10px">
+      <a class="button button-positive" ui-sref="app.workout">Start</a>
+    </div>
   </ion-content>
 </ion-view>

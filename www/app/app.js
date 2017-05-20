@@ -9,7 +9,8 @@
 
   angular.module('athleteApp', [
     'ionic',
-    'starter.controller'
+    'starter.controller',
+    'athleteApp.mockdata'
   ])
 
   .run(function ($ionicPlatform) {
@@ -49,7 +50,7 @@
         }
       })
       .state('app.profile', {
-        url: '/plans/:planId',
+        url: '/plans/:planTitle/:planId',
         views: {
           'menuContent': {
             templateUrl: 'app/profile/profile.html'
@@ -65,7 +66,7 @@
         }
       })
 
-    $urlRouterProvider.otherwise('/app/home');
+    $urlRouterProvider.otherwise('/app/plans');
 
   });
 

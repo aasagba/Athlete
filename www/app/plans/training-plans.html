@@ -1,8 +1,8 @@
 <ion-view view-title="Training Plans" ng-controller="trainingPlanCtrl as training">
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="plan in training.plans" href="#/app/plans/{{plan.id}}">
-        {{plan.title}}
+      <ion-item ng-repeat="plan in training.plans" href="#/app/plans/{{plan.title}}/{{plan.id}}">
+        <div style="background-image: url({{plan.image}});height:200px;"><p style="text-align: center;font-size: 20px;">{{plan.title}}</p></div>
       </ion-item>
     </ion-list>
   </ion-content>
